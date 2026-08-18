@@ -8,7 +8,7 @@ on:
   pull_request:
 
 concurrency:
-  group: develop-future-${{ github.event.number }}
+  group: develop-kinetix_new-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:
@@ -89,10 +89,10 @@ jobs:
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
-          bench get-app future $GITHUB_WORKSPACE
+          bench get-app kinetix_new $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
-          bench --site test_site install-app future
+          bench --site test_site install-app kinetix_new
           bench build
         env:
           CI: 'Yes'
@@ -101,6 +101,6 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench --site test_site set-config allow_tests true
-          bench --site test_site run-tests --app future
+          bench --site test_site run-tests --app kinetix_new
         env:
           TYPE: server

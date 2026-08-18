@@ -1,13 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-08-15 17:02:47.942771",
+ "creation": "2026-08-15 17:24:33.709995",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "components",
-  "amount"
+  "amount",
+  "received_amount"
  ],
  "fields": [
   {
@@ -23,15 +24,22 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Amount"
+  },
+  {
+   "fieldname": "received_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Received Amount",
+   "mandatory_depends_on": "eval:doc.amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-08-15 17:03:49.779520",
+ "modified": "2026-08-15 17:27:34.401158",
  "modified_by": "Administrator",
- "module": "future",
- "name": "Hostel Details",
+ "module": "kinetix_new",
+ "name": "Hostel Fee Details",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

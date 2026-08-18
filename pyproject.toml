@@ -1,9 +1,9 @@
 [project]
-name = "future"
+name = "kinetix_new"
 authors = [
     { name = "sarath", email = "sarath@gmail.com"}
 ]
-description = "future"
+description = "kinetix_new"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

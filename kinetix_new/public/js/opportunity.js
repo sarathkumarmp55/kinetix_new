@@ -27,7 +27,7 @@ frappe.ui.form.on("Opportunity", {
             if (frm.doc.status !== "Payment Approval Pending") {
                 frm.add_custom_button(__("Payment Approval"), function () {
                     frappe.call({
-                        method: "future.api.create_payment_approval_log",
+                        method: "kinetix_new.api.create_payment_approval_log",
                         args: {
                             opportunity_name: frm.doc.name,
                             party_name: frm.doc.party_name

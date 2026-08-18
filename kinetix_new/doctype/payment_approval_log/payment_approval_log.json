@@ -458,7 +458,7 @@
  ],
  "modified": "2026-08-17 00:00:44.462765",
  "modified_by": "Administrator",
- "module": "future",
+ "module": "kinetix_new",
  "name": "Payment Approval Log",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",

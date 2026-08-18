@@ -1594,7 +1594,7 @@
    "is_system_generated": 1,
    "modified": "2026-08-15 18:49:00.595194",
    "modified_by": "Administrator",
-   "module": "future",
+   "module": "kinetix_new",
    "name": "Lead-status-options",
    "owner": "Administrator",
    "property": "options",

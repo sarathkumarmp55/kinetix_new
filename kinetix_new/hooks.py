@@ -1,7 +1,7 @@
-app_name = "future"
-app_title = "future"
+app_name = "kinetix_new"
+app_title = "kinetix_new"
 app_publisher = "sarath"
-app_description = "future"
+app_description = "kinetix_new"
 app_email = "sarath@gmail.com"
 app_license = "mit"
 
@@ -29,11 +29,11 @@ app_license = "mit"
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
-# 		"name": "future",
-# 		"logo": "/assets/future/logo.png",
-# 		"title": "future",
-# 		"route": "/future",
-# 		"has_permission": "future.api.permission.has_app_permission"
+# 		"name": "kinetix_new",
+# 		"logo": "/assets/kinetix_new/logo.png",
+# 		"title": "kinetix_new",
+# 		"route": "/kinetix_new",
+# 		"has_permission": "kinetix_new.api.permission.has_app_permission"
 # 	}
 # ]
 
@@ -41,15 +41,15 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/future/css/future.css"
-# app_include_js = "/assets/future/js/future.js"
+# app_include_css = "/assets/kinetix_new/css/kinetix_new.css"
+# app_include_js = "/assets/kinetix_new/js/kinetix_new.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/future/css/future.css"
-# web_include_js = "/assets/future/js/future.js"
+# web_include_css = "/assets/kinetix_new/css/kinetix_new.css"
+# web_include_js = "/assets/kinetix_new/js/kinetix_new.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "future/public/scss/website"
+# website_theme_scss = "kinetix_new/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -67,7 +67,7 @@ app_license = "mit"
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "future/public/icons.svg"
+# app_include_icons = "kinetix_new/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -91,43 +91,43 @@ app_license = "mit"
 
 # add methods and filters to jinja environment
 # jinja = {
-# 	"methods": "future.utils.jinja_methods",
-# 	"filters": "future.utils.jinja_filters"
+# 	"methods": "kinetix_new.utils.jinja_methods",
+# 	"filters": "kinetix_new.utils.jinja_filters"
 # }
 
 # Installation
 # ------------
 
-# before_install = "future.install.before_install"
-# after_install = "future.install.after_install"
+# before_install = "kinetix_new.install.before_install"
+# after_install = "kinetix_new.install.after_install"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "future.uninstall.before_uninstall"
-# after_uninstall = "future.uninstall.after_uninstall"
+# before_uninstall = "kinetix_new.uninstall.before_uninstall"
+# after_uninstall = "kinetix_new.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "future.utils.before_app_install"
-# after_app_install = "future.utils.after_app_install"
+# before_app_install = "kinetix_new.utils.before_app_install"
+# after_app_install = "kinetix_new.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "future.utils.before_app_uninstall"
-# after_app_uninstall = "future.utils.after_app_uninstall"
+# before_app_uninstall = "kinetix_new.utils.before_app_uninstall"
+# after_app_uninstall = "kinetix_new.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "future.notifications.get_notification_config"
+# notification_config = "kinetix_new.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -181,39 +181,39 @@ doctype_js = {
 
 # scheduler_events = {
 # 	"all": [
-# 		"future.tasks.all"
+# 		"kinetix_new.tasks.all"
 # 	],
 # 	"daily": [
-# 		"future.tasks.daily"
+# 		"kinetix_new.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"future.tasks.hourly"
+# 		"kinetix_new.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"future.tasks.weekly"
+# 		"kinetix_new.tasks.weekly"
 # 	],
 # 	"monthly": [
-# 		"future.tasks.monthly"
+# 		"kinetix_new.tasks.monthly"
 # 	],
 # }
 
 # Testing
 # -------
 
-# before_tests = "future.install.before_tests"
+# before_tests = "kinetix_new.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "future.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "kinetix_new.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "future.task.get_dashboard_data"
+# 	"Task": "kinetix_new.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -227,13 +227,13 @@ doctype_js = {
 
 # Request Events
 # ----------------
-# before_request = ["future.utils.before_request"]
-# after_request = ["future.utils.after_request"]
+# before_request = ["kinetix_new.utils.before_request"]
+# after_request = ["kinetix_new.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["future.utils.before_job"]
-# after_job = ["future.utils.after_job"]
+# before_job = ["kinetix_new.utils.before_job"]
+# after_job = ["kinetix_new.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -263,7 +263,7 @@ doctype_js = {
 # --------------------------------
 
 # auth_hooks = [
-# 	"future.auth.validate"
+# 	"kinetix_new.auth.validate"
 # ]
 
 # Automatically update python controller files with type annotations for this app.
