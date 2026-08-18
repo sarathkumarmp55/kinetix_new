@@ -1,37 +1,40 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-08-15 17:02:47.942771",
+ "creation": "2026-08-15 16:10:07.379024",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "components",
+  "component",
   "amount"
  ],
  "fields": [
   {
-   "fieldname": "components",
+   "fieldname": "component",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Components",
-   "options": "Item"
+   "label": "Component",
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Amount"
+   "in_standard_filter": 1,
+   "label": "Amount",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-08-15 17:03:49.779520",
+ "modified": "2026-08-15 16:20:31.812697",
  "modified_by": "Administrator",
- "module": "kinetix_new",
- "name": "Hostel Details",
+ "module": "Kinetix New",
+ "name": "Fees Details",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

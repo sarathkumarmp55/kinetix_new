@@ -2,22 +2,26 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2026-08-15 17:57:15.824886",
+ "creation": "2026-08-15 17:06:43.600716",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "rute",
+  "hostel_type",
   "details"
  ],
  "fields": [
   {
-   "default": "Vehicle-",
-   "fieldname": "naming_series",
+   "fieldname": "hostel_type",
    "fieldtype": "Select",
-   "label": "Naming Series",
-   "options": "Vehicle-",
-   "read_only": 1
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Hostel Type",
+   "options": "\nAC\nNON-AC",
+   "reqd": 1
   },
   {
    "fieldname": "details",
@@ -26,23 +30,20 @@
    "options": "Hostel Details"
   },
   {
-   "fieldname": "rute",
-   "fieldtype": "Data",
-   "in_filter": 1,
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "Rute",
-   "reqd": 1
+   "default": "HOSTEL-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "HOSTEL-",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-15 18:02:52.910769",
+ "modified": "2026-08-15 17:20:45.366965",
  "modified_by": "Administrator",
- "module": "kinetix_new",
- "name": "Vehicle Fee",
+ "module": "Kinetix New",
+ "name": "Hostel",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
@@ -59,7 +60,7 @@
    "write": 1
   }
  ],
- "search_fields": "rute",
+ "search_fields": "hostel_type",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
