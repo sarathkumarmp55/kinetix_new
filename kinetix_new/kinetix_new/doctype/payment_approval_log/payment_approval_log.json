@@ -185,7 +185,6 @@
    "label": "Email Id"
   },
   {
-   "fetch_from": "lead_reference.custom_class",
    "fieldname": "class",
    "fieldtype": "Data",
    "label": "Class",
@@ -456,7 +455,7 @@
    "link_fieldname": "custom_payment_approval_log"
   }
  ],
- "modified": "2026-08-17 00:00:44.462765",
+ "modified": "2026-08-20 22:12:38.105845",
  "modified_by": "Administrator",
  "module": "Kinetix New",
  "name": "Payment Approval Log",

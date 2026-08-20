@@ -25,7 +25,7 @@ def create_payment_approval_log(opportunity_name, party_name):
         "gender": lead_gender,
         "email_id": lead_email_id,
         "location": opportunity.custom_location,
-        "transaction_date": opportunity.custom_payment_date,
+        # "transaction_date": opportunity.custom_payment_date,
         "transaction_id": opportunity.custom_transaction_id,
         "academic_year": opportunity.custom_academic_year,
         "mode_of_payment": opportunity.custom_mode_of_payment,
