@@ -6,56 +6,160 @@ from frappe.model.document import Document
 
 
 class StudentService(Document):
+	# def before_submit(self):
+	# 	if self.student:
+	# 		student_values = {
+	# 			"custom_program_total_amount": self.program_total_amount,
+	# 			"custom_hostel_total_amount": self.hostel_total_amount_new,
+	# 			"custom_vehicle_total_amount": self.vehicle_total_amount_new,
+	# 			"custom_hostel": self.hostel,
+	# 			"custom_vehicle": self.vehicle
+	# 		}
+
+	# 		# If selected_hosted has no value
+	# 		if not self.selected_hosted:
+	# 			student_values.update({
+	# 				"custom_hostel_total_amount": self.hostel_total_amount,
+	# 				"custom_hostel_total_received_amount": self.hostel_received_amount,
+	# 				"custom_hostel_balance_amount": self.hostel_total_amount - self.hostel_received_amount
+	# 			})
+
+	# 		if self.selected_hosted:
+	# 			student_values.update({
+					
+	# 				"custom_hostel_total_received_amount": self.hostel_total_amount_new - self.outstanding_amount_1,
+	# 				"custom_hostel_balance_amount": self.self.outstanding_amount_1
+	# 			})
+
+	# 		if not self.selected_vehicle:
+	# 			student_values.update({
+	# 				"custom_vehicle_total_amount": self.vehicle_total_amount,
+	# 				"custom_vehicle_total_received_amount": self.vehicle_received_amount,
+	# 				"custom_vehicle_balance_amount": self.vehicle_total_amount - self.vehicle_received_amount
+	# 			})
+
+	# 		if self.selected_vehicle:
+	# 			student_values.update({
+					
+	# 				"custom_vehicle_total_received_amount": self.vehicle_total_amount_new - self.outstanding_amount_2,
+	# 				"custom_vehicle_balance_amount": self.vehicle_total_amount_new - self.outstanding_amount_2
+	# 			})
+	# 		if self.selected_program:
+	# 			student_values.update({
+	# 				"custom_program_total_received_amount": self.program_total_amount - self.outstanding_amount,
+	# 				"custom_program_balance_amount": self.outstanding_amount
+	# 			})
+
+
+	# 		frappe.db.set_value(
+	# 			"Student",
+	# 			self.student,
+	# 			student_values
+	# 		)
+
+
+
 	def before_submit(self):
-		if self.student:
-			student_values = {
-				"custom_program_total_amount": self.program_total_amount,
-				"custom_hostel_total_amount": self.hostel_total_amount_new,
-				"custom_vehicle_total_amount": self.vehicle_total_amount_new,
-				"custom_hostel": self.hostel,
-				"custom_vehicle": self.vehicle
-			}
-
-			# If selected_hosted has no value
-			if not self.selected_hosted:
-				student_values.update({
-					"custom_hostel_total_amount": self.hostel_total_amount,
-					"custom_hostel_total_received_amount": self.hostel_received_amount,
-					"custom_hostel_balance_amount": self.hostel_total_amount - self.hostel_received_amount
-				})
-
-			if self.selected_hosted:
-				student_values.update({
-					
-					"custom_hostel_total_received_amount": self.hostel_total_amount_new - self.outstanding_amount_1,
-					"custom_hostel_balance_amount": self.self.outstanding_amount_1
-				})
-
-			if not self.selected_vehicle:
-				student_values.update({
-					"custom_vehicle_total_amount": self.vehicle_total_amount,
-					"custom_vehicle_total_received_amount": self.vehicle_received_amount,
-					"custom_vehicle_balance_amount": self.vehicle_total_amount - self.vehicle_received_amount
-				})
-
-			if self.selected_vehicle:
-				student_values.update({
-					
-					"custom_vehicle_total_received_amount": self.vehicle_total_amount_new - self.outstanding_amount_2,
-					"custom_vehicle_balance_amount": self.vehicle_total_amount_new - self.outstanding_amount_2
-				})
-			if self.selected_program:
-				student_values.update({
-					"custom_program_total_received_amount": self.program_total_amount - self.outstanding_amount,
-					"custom_program_balance_amount": self.outstanding_amount
-				})
-
-
-			frappe.db.set_value(
-				"Student",
-				self.student,
-				student_values
+		if self.add_discount and not self.approved:
+			frappe.throw(
+				"Cannot submit Student Service. Discount approval is pending."
 			)
+
+		if not self.student:
+			return
+
+		student_values = {
+			"custom_program_total_amount": self.program_total_amount,
+			"custom_hostel_total_amount": self.hostel_total_amount_new,
+			"custom_vehicle_total_amount": self.vehicle_total_amount_new,
+			"custom_hostel": self.hostel,
+			"custom_vehicle": self.vehicle,
+		}
+
+		# -------------------------
+		# HOSTEL
+		# -------------------------
+		if not self.selected_hosted:
+			hostel_total = self.hostel_total_amount or 0
+			hostel_received = self.hostel_received_amount or 0
+			hostel_balance = hostel_total - hostel_received
+
+			student_values.update({
+				"custom_hostel_total_amount": hostel_total,
+				"custom_hostel_total_received_amount": hostel_received,
+				"custom_hostel_balance_amount": hostel_balance,
+			})
+
+		else:
+      
+			if self.hostel_required == 1:
+      
+		
+				hostel_total = self.hostel_total_amount_new or 0
+				hostel_balance = self.outstanding_amount_1 or 0
+				hostel_received = hostel_total - hostel_balance
+
+				student_values.update({
+					"custom_hostel_total_amount": hostel_total,
+					"custom_hostel_total_received_amount": hostel_received,
+					"custom_hostel_balance_amount": hostel_balance,
+					"custom_vehicle": self.selected_vehicle
+				})
+
+		# -------------------------
+		# VEHICLE
+		# -------------------------
+		if not self.selected_vehicle:
+			vehicle_total = self.vehicle_total_amount or 0
+			vehicle_received = self.vehicle_received_amount or 0
+			vehicle_balance = vehicle_total - vehicle_received
+
+			student_values.update({
+				"custom_vehicle_total_amount": vehicle_total,
+				"custom_vehicle_total_received_amount": vehicle_received,
+				"custom_vehicle_balance_amount": vehicle_balance,
+			})
+
+		else:
+			if self.vehicle_required == 1:
+      
+		
+				vehicle_total = self.vehicle_total_amount_new or 0
+				vehicle_balance = self.outstanding_amount_2 or 0
+				vehicle_received = vehicle_total - vehicle_balance
+
+				student_values.update({
+					"custom_vehicle_total_amount": vehicle_total,
+					"custom_vehicle_total_received_amount": vehicle_received,
+					"custom_vehicle_balance_amount": vehicle_balance,
+					"custom_hostel": self.selected_hosted,
+
+				})
+
+		# -------------------------
+		# PROGRAM
+		# -------------------------
+		if self.fees == 1:
+			program_total = self.program_total_amount or 0
+			program_balance = self.outstanding_amount or 0
+			program_received = program_total - program_balance
+
+			student_values.update({
+				"custom_program_total_received_amount": program_received,
+				"custom_program_balance_amount": program_balance,
+				"custom_hostel": self.selected_hosted,
+				"custom_vehicle": self.selected_vehicle
+    
+			})
+
+		# -------------------------
+		# UPDATE STUDENT
+		# -------------------------
+		frappe.db.set_value(
+			"Student",
+			self.student,
+			student_values
+		)
 
 	def on_submit(self):
 		log = frappe.new_doc("Payment Approval Log")
